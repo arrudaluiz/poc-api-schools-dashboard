@@ -1,12 +1,16 @@
 import dotenv from 'dotenv';
-import express from 'express';
+import express, { Application, Request, Response } from 'express';
+import bodyParser from 'body-parser';
 
-const app = express();
+const app: Application = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 dotenv.config({ path: '.env' });
-const port = process.env.PORT || 3000;
+const port: number = Number(process.env.PORT) || 3000;
 
-app.get('/', (req, res) => {
+app.get('/', (req: Request, res: Response) => {
   res.send('ok');
 });
 
