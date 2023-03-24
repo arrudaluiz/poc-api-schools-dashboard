@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  server:
+    container_name: schools_api
+    build: .
+    depends_on:
+      - mysql
+    environment:
+      - DATABASE_HOST=${DATABASE_HOST}
+      - DATABASE_USER=${DATABASE_USER}
+      - DATABASE_PASSWORD=${DATABASE_PASSWORD}
+    ports:
+      - ${PORT}:${PORT}
+
+  mysql:
+    container_name: mysql_local
+    build: ./docker-mysql
+    environment:
+      - MYSQL_DATABASE=${DATABASE}
+      - MYSQL_USER=${DATABASE_USER}
+      - MYSQL_ROOT_PASSWORD=${DATABASE_PASSWORD}
+    volumes:
+      - mysql:${DATABASE_DATA}
+    ports:
+      - '${DATABASE_PORT}:${DATABASE_PORT}'
+    restart: always
+
+volumes:
+  mysql:
