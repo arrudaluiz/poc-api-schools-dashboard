@@ -1,1 +1,3 @@
-CREATE DATABASE "schools";
+CREATE DATABASE IF NOT EXISTS `schools_development`;
+CREATE DATABASE IF NOT EXISTS `schools_test`;
+CREATE DATABASE IF NOT EXISTS `schools`;
