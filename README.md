@@ -9,7 +9,9 @@
 
 ### Instructions
 
-- Create an `.env` file like `.env.example`;
-- Run `npm install` to install the dependencies;
-- Initialize Docker containers with `docker compose up -d`;
-- Start the project with `npm run dev`.
+- Create an `.env` file like `.env.example`
+- Install the dependencies: `npm install`
+- Build the project: `npm run build`
+- Initialize Docker containers: `docker compose up -d`
+- Run migrations: `npm run migrate`
+- Start the project in development mode: `npm run dev`
